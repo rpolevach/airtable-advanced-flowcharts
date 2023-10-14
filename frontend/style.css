@@ -1,0 +1,43 @@
+.react-flow__edge-path {
+    stroke: #333;
+    stroke-width: 2;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+    stroke: red;
+}
+  
+.temp .react-flow__edge-path {
+    stroke: #bbb;
+    stroke-dasharray: 5 5;
+}
+
+.react-flow__node.rounded .custom-node {
+    border-radius: 100px;
+}
+.react-flow__node.rectangle .custom-node {
+    border-radius: 0;
+}
+
+.custom-node {
+    width: 150px;
+    height: 50px;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 25px;
+    background: white;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+
+.custom-node.selected {
+    box-shadow: 0 0 0 0.5px #1a192b;;
+}
+
+.custom-node label {
+    display: block;
+    color: #777;
+    font-size: 12px;
+  }
+  
