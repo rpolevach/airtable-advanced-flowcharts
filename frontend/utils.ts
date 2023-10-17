@@ -172,7 +172,9 @@ export const getLayoutElements = (
     node.sourcePosition = isHorizontal ? Position.Right : Position.Bottom;
 
     node.position = {
-      x: nodeWithPosition.x - nodeWidth / 2,
+      x: isHorizontal
+        ? (nodeWithPosition.x - nodeWidth / 2) * 1.5
+        : nodeWithPosition.x - nodeWidth / 2,
       y: nodeWithPosition.y - nodeHeight / 2,
     };
 

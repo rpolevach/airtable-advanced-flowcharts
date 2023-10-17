@@ -16,7 +16,6 @@ const CustomNode = ({
   sourcePosition,
   targetPosition,
 }: Node<{ label: string; record: Record }>) => {
-  console.log(sourcePosition, targetPosition);
   return (
     <div className={`custom-node ${selected ? "selected" : ""}`}>
       <NodeToolbar isVisible={selected}>
