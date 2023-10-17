@@ -12,14 +12,12 @@ export const populateNodesAndEdges = (
   const edges: Edge[] = [];
 
   records.map((record) => {
-    if (!record.name) return;
-
     const nextActions = record.getCellValue(settings.field.name) as Field[];
 
     nodes.push({
-      id: record.name,
+      id: record.id,
       data: {
-        label: record.name,
+        label: record.name || "No name",
         record: record,
       },
       type: "customNode",
@@ -36,9 +34,9 @@ export const populateNodesAndEdges = (
       nextActions.map((field) => {
         edges.push({
           id: `${record.name}-${field.name}`,
-          source: record.name,
+          source: record.id,
           type: settings.edgeType,
-          target: field.name,
+          target: field.id,
           data: {
             sourceRecord: record,
           },
@@ -110,7 +108,7 @@ export const deleteConnectionsFromTable = async (
 ) => {
   const linkFieldData = record?.getCellValue(fieldName) as Record[];
   const filteredFieldData =
-    linkFieldData?.filter((d) => d.name !== edge.target) || [];
+    linkFieldData?.filter((d) => d.id !== edge.target) || [];
 
   if (table.hasPermissionToUpdateRecord(record)) {
     await table.updateRecordAsync(record, {
